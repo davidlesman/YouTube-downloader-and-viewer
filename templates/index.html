@@ -1,35 +1,34 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
 
-	<head>
-		<meta charset="UTF-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="stylesheet" href="{{ url_for('static', filename='pico.min.css') }}">
-		<title>YT downloader & viewer</title>
-		<script>
-			window.addEventListener("DOMContentLoaded", () => {
-				form = document.querySelector("#form")
-				btn = document.querySelector("#btn")
-				console.log(btn)
-				form.addEventListener("submit", function () {
-					btn.setAttribute("aria-busy", true)
-				})
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{{ url_for('static', filename='pico.min.css') }}">
+	<title>YT downloader & viewer</title>
+	<script>
+		window.addEventListener("DOMContentLoaded", () => {
+			form = document.querySelector("#form")
+			btn = document.querySelector("#btn")
+			console.log(btn)
+			form.addEventListener("submit", function () {
+				btn.setAttribute("aria-busy", true)
 			})
-		</script>
-	</head>
+		})
+	</script>
+</head>
 
-	<body>
-		<main class="container">
-			<h1>YT downloader</h1>
-			<form method="post" id="form">
-				<label for="link">Url:</label>
-				<input type="url" name="link" required placeholder="https://www.youtube.com/watch?v=">
-				<button type="submit" aria-busy="false" id="btn">Download</button>
-			</form>
+<body>
+	<main class="container">
+		<h1>YT downloader</h1>
+		<form method="post" id="form">
+			<label for="link">Url:</label>
+			<input type="url" name="link" required placeholder="https://www.youtube.com/watch?v=">
+			<button type="submit" aria-busy="false" id="btn">Download</button>
+		</form>
 
-			<a href="{{ url_for('viewer') }}" role="button" class="outline">YT viewer</a>
-		</main>
-	</body>
+		<a href="{{ url_for('viewer') }}" role="button" class="outline">YT viewer</a>
+	</main>
+</body>
 
 </html>
