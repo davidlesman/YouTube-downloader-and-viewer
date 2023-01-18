@@ -1,0 +1,4 @@
+*.pyc
+*.mp4
+static/vids
+.DS_Store
