@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="{{ url_for('static', filename='pico.min.css') }}">
+		<title>🎬 YT downloader & viewer</title>
+	</head>
+
+	<body>
+		<main class="container">
+			<h1>🍿 View downloaded videos</h1>
+
+			<section>
+				<div class="grid">
+					{% for x in videos %}
+					<video controls width="320" height="240">
+						<source src="{{ url_for('static', filename=x) }}" type="video/mp4">
+						Your browser does not support the video tag.
+					</video>
+					{% endfor %}
+				</div>
+			</section>
+
+			<a href="{{ url_for('index') }}" role="button" class="outline">YT downloader</a>
+		</main>
+	</body>
+
+</html>
