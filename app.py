@@ -1,8 +1,10 @@
 import os
+from pathlib import Path
 from flask import Flask, render_template, request, redirect
 from downloader import download
 
 app = Flask(__name__)
+path = Path(__file__).parent / "./static/vids"
 
 
 @app.route("/", methods=["POST", "GET"])
@@ -18,7 +20,7 @@ def index():
 @app.route("/viewer/")
 def viewer():
     vids = []
-    for x in os.listdir("./static/vids"):
+    for x in os.listdir(path):
         if x.endswith(".mp4"):
             vids.append("/vids/" + x)
     print(vids)
