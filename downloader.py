@@ -1,4 +1,7 @@
 from pytube import YouTube
+from pathlib import Path
+
+path = Path(__file__).parent / "./static/vids"
 
 
 def download(link: str):
@@ -11,7 +14,7 @@ def download(link: str):
         if yd is None:
             yd = yt.streams.get_by_resolution("720p")
 
-    yd.download("./static/vids")
+    yd.download(path)
 
     return yt, yd
 
